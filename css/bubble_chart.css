@@ -71,13 +71,14 @@ h1{
   width: 940px;
   height: 600px;
   clear: both;
-  margin-bottom: 10px;
+  margin-top: 37px;
+  /* margin-bottom: 10px; */
 }
 
 #toolbar {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 50px;
 }
 
 #floorSel {

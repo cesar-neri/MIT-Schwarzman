@@ -124,8 +124,8 @@ function bubbleChart() {
     47: { x: 13*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
     48: { x: 15*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
     49: { x: 17*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    50: { x: 19*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    51: { x: 1*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+    50: { x: 3*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+    51: { x: 5*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
     52: { x: 3*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
     53: { x: 5*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
     54: { x: 7*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
@@ -939,7 +939,7 @@ pt272: { x:1223.119253, y:454.538652}
     positions.enter().append('text')
       .attr('class', 'position')
       .attr('x', function (d) { return positionsTitleX[d]; })
-      .attr('y', 40)
+      .attr('y', 200)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }
