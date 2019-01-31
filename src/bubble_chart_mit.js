@@ -713,7 +713,7 @@ pt272: { x:1223.119253, y:454.538652}
   }
 
   function nodeResearchGroupPosY(d) {
-    return researchGroupCenters[d.researchGroup].y;
+    return researchGroupCenters[d.researchGroup].y-100;
   }
 
   function seatingPosX(d) {
