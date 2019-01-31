@@ -7,7 +7,7 @@
  *
  */
 
-var floorFilter = null;
+var floorFilter = 8;
 var buttonId = 'all';
 var rawData;
 var rawDataVar;
