@@ -7,7 +7,7 @@
  *
  */
 
-var floorFilter = 8;
+var floorFilter = null;
 var buttonId = 'all';
 var rawData;
 var rawDataVar;
@@ -76,76 +76,75 @@ function bubbleChart() {
 
   var researchGroupCenters = {
     1: { x: 1*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    2: { x: 3*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    3: { x: 5*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    4: { x: 7*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    5: { x: 9*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    6: { x: 11*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    7: { x: 13*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    8: { x: 15*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    9: { x: 17*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    10: { x: 19*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
-    11: { x: 1*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    12: { x: 3*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    13: { x: 5*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    14: { x: 7*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    15: { x: 9*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    16: { x: 11*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    17: { x: 13*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    18: { x: 15*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    19: { x: 17*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    20: { x: 19*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
-    21: { x: 1*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    22: { x: 3*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    23: { x: 5*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    24: { x: 7*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    25: { x: 9*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    26: { x: 11*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    27: { x: 13*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    28: { x: 15*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    29: { x: 17*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    30: { x: 19*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
-    31: { x: 1*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    32: { x: 3*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    33: { x: 5*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    34: { x: 7*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    35: { x: 9*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    36: { x: 11*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    37: { x: 13*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    38: { x: 15*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    39: { x: 17*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    40: { x: 19*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
-    41: { x: 1*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    42: { x: 3*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    43: { x: 5*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    44: { x: 7*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    45: { x: 9*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    46: { x: 11*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    47: { x: 13*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    48: { x: 15*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    49: { x: 17*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    50: { x: 3*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    51: { x: 5*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
-    52: { x: 3*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    53: { x: 5*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    54: { x: 7*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    55: { x: 9*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    56: { x: 11*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    57: { x: 13*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    58: { x: 15*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    59: { x: 17*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    60: { x: 19*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
-    61: { x: 1*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    62: { x: 3*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    63: { x: 5*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    64: { x: 7*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    65: { x: 9*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    66: { x: 11*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    67: { x: 13*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    68: { x: 15*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    69: { x: 17*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-    70: { x: 19*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
-
+      2: { x: 3*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      3: { x: 5*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      4: { x: 7*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      5: { x: 9*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      6: { x: 11*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      7: { x: 13*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      8: { x: 15*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      9: { x: 17*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      10: { x: 19*(width / rowDivider)+rowAddition, y: 1*(height / columnDivider)+columnAddition},
+      11: { x: 1*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      12: { x: 3*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      13: { x: 5*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      14: { x: 7*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      15: { x: 9*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      16: { x: 11*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      17: { x: 13*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      18: { x: 15*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      19: { x: 17*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      20: { x: 19*(width / rowDivider)+rowAddition, y: 3*(height / columnDivider)+columnAddition},
+      21: { x: 1*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      22: { x: 3*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      23: { x: 5*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      24: { x: 7*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      25: { x: 9*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      26: { x: 11*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      27: { x: 13*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      28: { x: 15*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      29: { x: 17*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      30: { x: 19*(width / rowDivider)+rowAddition, y: 5*(height / columnDivider)+columnAddition},
+      31: { x: 1*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      32: { x: 3*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      33: { x: 5*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      34: { x: 7*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      35: { x: 9*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      36: { x: 11*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      37: { x: 13*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      38: { x: 15*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      39: { x: 17*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      40: { x: 19*(width / rowDivider)+rowAddition, y: 7*(height / columnDivider)+columnAddition},
+      41: { x: 1*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      42: { x: 3*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      43: { x: 5*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      44: { x: 7*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      45: { x: 9*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      46: { x: 11*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      47: { x: 13*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      48: { x: 15*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      49: { x: 17*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      50: { x: 19*(width / rowDivider)+rowAddition, y: 9*(height / columnDivider)+columnAddition},
+      51: { x: 1*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      52: { x: 3*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      53: { x: 5*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      54: { x: 7*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      55: { x: 9*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      56: { x: 11*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      57: { x: 13*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      58: { x: 15*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      59: { x: 17*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      60: { x: 19*(width / rowDivider)+rowAddition, y: 11*(height / columnDivider)+columnAddition},
+      61: { x: 1*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      62: { x: 3*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      63: { x: 5*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      64: { x: 7*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      65: { x: 9*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      66: { x: 11*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      67: { x: 13*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      68: { x: 15*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      69: { x: 17*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
+      70: { x: 19*(width / rowDivider)+rowAddition, y: 13*(height / columnDivider)+columnAddition},
   };
 
   var seatCenters = {
@@ -565,31 +564,6 @@ pt272: { x:1223.119253, y:454.538652}
     // convert raw data into nodes data
     nodes = createNodes(rawData);
 
-    // // create link data set from research groups
-    // var researchGroupMax = d3.max(nodes, function(d) { return +d.researchGroup;} );
-    //
-    // nodes.sort(function (a, b) { return a.researchGroup - b.researchGroup; });
-    //
-    // var researchGroupCounter = []
-    //
-    // for (i = 0; i < researchGroupMax; i++) {
-    //   researchGroupCounter.push([]);
-    // }
-    //
-    // for (i = 0; i < nodes.length; i++) {
-    //   researchGroupCounter[(nodes[i].researchGroup)-1].push(nodes[i].id);
-    // }
-    //
-    // for (i = 0; i < researchGroupCounter.length; i++) {
-    //   for (g = 0; g < researchGroupCounter[i].length; g++) {
-    //     var counter = researchGroupCounter[i].length - g;
-    //     for (x = 1; x < counter; x++) {
-    //       var arr = {source: researchGroupCounter[i][g], target: researchGroupCounter[i][g+x]};
-    //       links.push(arr);
-    //     }
-    //   }
-    // }
-    //
     joinedData = {nodes: nodes};
 
 
@@ -603,6 +577,7 @@ pt272: { x:1223.119253, y:454.538652}
       .data(joinedData.nodes, function (d) { return d.id; })
 
 
+
     // connections = svg.selectAll('.connection')
     //     .data(joinedData.links, function (d) { return d.id; })
 
@@ -613,34 +588,25 @@ pt272: { x:1223.119253, y:454.538652}
     // @v4 Selections are immutable, so lets capture the
     //  enter selection to apply our transtition to below.
 
-      // const connectionsE = svg.append("g")
-      // .classed('connection', true)
-      // .attr("stroke", "#000000")
-      // .attr("opacity", 0.6)
-      // .attr("stroke-width", 0.1)
-      // .selectAll("line")
-      // .data(links)
-      // .enter().append("line");
 
       const bubblesE = svg.append("g")
       .classed('bubble', true)
+      .classed(function (nodes) { return nodes.floor}, true)
       .attr('stroke-width', 0)
       .selectAll("circle")
       .data(nodes)
       .enter().append("circle")
       .attr("r", 0)
       .attr('fill', function (nodes) { return fillColor(nodes.discipline); })
-      .attr('stroke', function (nodes) { return strokeColor(nodes.collaborationType); });
+      .attr('stroke', function (nodes) { return strokeColor(nodes.collaborationType); })
+      .on('mouseover', showDetail)
+      .on('mouseout', hideDetail);
 
-      // Create new circle elements each with class `bubble`.
-      // There will be one circle.bubble for each object in the nodes array.
-      // Initially, their radius (r attribute) will be 0.
-      // @v4 Selections are immutable, so lets capture the
-      //  enter selection to apply our transtition to below
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
 
+    console.log(bubbles);
     // connections = connections.merge(connectionsE);
 
     // @v4 Merge the original empty selection and the enter selectio
@@ -650,6 +616,8 @@ pt272: { x:1223.119253, y:454.538652}
     bubbles.transition()
       .duration(2000)
       .attr('r', function (nodes) { return nodes.radius; });
+
+
 
 
     // Set the simulation's nodes to our newly created nodes array.
@@ -713,7 +681,7 @@ pt272: { x:1223.119253, y:454.538652}
   }
 
   function nodeResearchGroupPosY(d) {
-    return researchGroupCenters[d.researchGroup].y-100;
+    return researchGroupCenters[d.researchGroup].y;
   }
 
   function seatingPosX(d) {
@@ -761,6 +729,8 @@ pt272: { x:1223.119253, y:454.538652}
     document.getElementById("sliderContainer").removeChild(floorPlanSlider);
     document.getElementById("mostSolitary").innerHTML = "";
     document.getElementById("mostCollaborative").innerHTML = "";
+    d3.selectAll('.bubble')
+        .attr("opacity", 1);
     floorPlanShowing = false;
     }
 
@@ -788,6 +758,8 @@ pt272: { x:1223.119253, y:454.538652}
     document.getElementById("sliderContainer").removeChild(floorPlanSlider);
     document.getElementById("mostSolitary").innerHTML = "";
     document.getElementById("mostCollaborative").innerHTML = "";
+    d3.selectAll('.bubble')
+        .attr("opacity", 1);
     floorPlanShowing = false;
     }
 
@@ -808,6 +780,8 @@ pt272: { x:1223.119253, y:454.538652}
     document.getElementById("sliderContainer").removeChild(floorPlanSlider);
     document.getElementById("mostSolitary").innerHTML = "";
     document.getElementById("mostCollaborative").innerHTML = "";
+    d3.selectAll('.bubble')
+        .attr("opacity", 1);
     floorPlanShowing = false;
     }
 
@@ -828,6 +802,8 @@ pt272: { x:1223.119253, y:454.538652}
     document.getElementById("sliderContainer").removeChild(floorPlanSlider);
     document.getElementById("mostSolitary").innerHTML = "";
     document.getElementById("mostCollaborative").innerHTML = "";
+    d3.selectAll('.bubble')
+        .attr("opacity", 1);
     floorPlanShowing = false;
     }
 
@@ -848,6 +824,8 @@ pt272: { x:1223.119253, y:454.538652}
     document.getElementById("sliderContainer").removeChild(floorPlanSlider);
     document.getElementById("mostSolitary").innerHTML = "";
     document.getElementById("mostCollaborative").innerHTML = "";
+    d3.selectAll('.bubble')
+        .attr("opacity", 1);
     floorPlanShowing = false;
     }
 
@@ -892,6 +870,14 @@ pt272: { x:1223.119253, y:454.538652}
 
     var mostSolitary = document.getElementById("mostCollaborative");
     mostCollaborative.innerHTML = "COLLABORATIVE";
+
+    // var bubs = d3.selectAll('.bubble[attribute = "floor: 8;"]')
+    //   .attr("opacity", 0);
+
+    var bubs = d3.selectAll('.8')
+      .attr('opacity', 0);
+
+    // console.log(p);
 
 
     // @v4 We can reset the alpha value and restart the simulation
