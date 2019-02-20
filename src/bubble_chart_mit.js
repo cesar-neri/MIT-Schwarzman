@@ -874,8 +874,8 @@ pt272: { x:1223.119253, y:454.538652}
     // var bubs = d3.selectAll('.bubble[attribute = "floor: 8;"]')
     //   .attr("opacity", 0);
 
-    var bubs = d3.selectAll('.8')
-      .attr('opacity', 0);
+    // var bubs = d3.selectAll('.8')
+    //   .attr('opacity', 0);
 
     // console.log(p);
 
